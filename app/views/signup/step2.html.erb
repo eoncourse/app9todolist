@@ -1,0 +1,16 @@
+<h1>Signup - additional information</h1>
+<%= form_for @user, :url => "/signup/step3/#{@user.id}", :method => :post do |f| %>
+  <p>
+    First name<br/>
+    <%= f.text_field :first_name  %>
+  </p>
+  <p>
+    Last name<br/>
+    <%= f.text_field :last_name  %>
+  </p>
+  <p>
+    Date of birth <br/>
+    <%= f.date_select :date_of_birth, :start_year => 1900, :order => [:day, :month, :year] %>
+  </p>
+  <%= f.submit "Continue" %>
+<% end %>

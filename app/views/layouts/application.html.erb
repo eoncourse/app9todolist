@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App9todolist</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1>My todo application</h1>
+<ul>
+  <li><%= link_to "Tasks", "/tasks" %></li>
+  <li><%= link_to "Login", "/access/login" %></li>
+  <li><%= link_to "Signup", "/signup/step1" %></li>
+  <li><%= link_to "User Administration", "/users" %></li>
+  <li><%= link_to "Logout", "/access/logout" %></li>
+</ul>
+<%= logged_message %>
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+</body>
+</html>

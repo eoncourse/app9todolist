@@ -1,0 +1,23 @@
+<h1>Signup - password assist</h1>
+<%= form_for @user, :url => "/signup/create/#{@user.id}", :method => :post do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      Security question<br/>
+      <%= f.select :security_question, User::QUESTIONS %>
+    </p>
+    <p>
+      Answer<br/>
+      <%= f.text_field :security_answer %>
+    </p>
+    <%= f.submit "Finish" %>
+<% end %>
